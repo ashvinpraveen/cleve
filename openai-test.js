@@ -57,7 +57,7 @@ main();
 // const OpenAI = require("openai");
 
 // const openai = new OpenAI({
-//   apiKey: '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',
+//   apiKey: '#########################',
 // });
 
 // async function main() {
