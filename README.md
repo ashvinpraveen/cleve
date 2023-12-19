@@ -22,3 +22,7 @@ Hello!
 Realised I was using Next previously so here's a new project with Node instead.
 
 Still trying to get the API connection to work
+
+### Day 4: 
+API IS WORKING YEAHHHHHHHH
+ok so now gotta figure out what's next. tbh my plan was only to get to the API stage first 😂
