@@ -2,7 +2,7 @@
 
 const OpenAI = require("openai"); //imports openai package
 require("dotenv").config(); //allows us to use .env file (where the api key is stored)
-console.log(process.env.OPENAI_API_KEY); //prints what's happening, to check which key is being used when we were diagnosing
+console.log(); //prints what's happening, to check which key is being used when we were diagnosing
 
 const openai = new OpenAI({
   //creates new instance of openai
@@ -11,11 +11,11 @@ const openai = new OpenAI({
 
 const response = async () => {
   const openai_response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo", //uses gpt-3.5-turbo model
+    model: "gpt-4", //uses gpt-3.5-turbo model
     messages: [
       {
         role: "user", //user is the person interacting with chatGPT
-        content: "hello world\n", //input from the user
+        content: "hello world", //input from the user
       },
       {
         role: "assistant", //assistant is the chatGPT
@@ -24,11 +24,11 @@ const response = async () => {
       {
         role: "user", //user is the person interacting with chatGPT
         content:
-          "I'm looking for some help in writing a linkedin post about how I'm learning to use the ChatGPT API's for my AI project.", //input from the user
+          "Write a post documenting my journey in learning how to use the OpenAI API. it was pretty tough at first, used Node.JS to build a backend server, with a simple code to communicate with the API and return the response. End your response by asking me a follow up question. Keep it concise.", //input from the user
       },
     ],
     temperature: 0.5, //these are just chatGPT settings, temperature is how creative the response is
-    max_tokens: 256, //max tokens is the max length of the response
+    max_tokens: 500, //max tokens is the max length of the response
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
@@ -36,11 +36,9 @@ const response = async () => {
   return openai_response; //you need the return function to get the response (we didn't have this initially)
 };
 
-response().then((response) => console.log(response.json())); //prints response to console, so it's visible
-
-//Stringify the JSON object to make it readable in the console (null, 4) is the indentation
-
-// "Write a short post documenting my journey in learning how to use the OpenAI API. it was pretty tough at first, used Node.JS to build a backend server, with a simple code to communicate with the API and return the response. End your response by asking me a follow up question.";
+response()
+  .then((result) => console.log(JSON.stringify(result, null, 4))) //prints response to console, so it's visible. Then turns the JSON to a string
+  .catch((error) => console.log("OpenAI fked up, not our fault", error)); //prints error to console, so it's visible
 
 //
 
