@@ -4,6 +4,9 @@ git rm --cached .env
 git rm --cached yarn.lock   
 git rm -r --cached /node_modules
 
+git rm -- .env
+git rm -- yarn.lock   
+git rm -r -- /node_modules
 
 # #ignore files below
 
