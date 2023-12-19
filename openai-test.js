@@ -35,13 +35,15 @@
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
- apiKey: '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',
+ apiKey: process.env.OPENAI_API_KEY,
 });
 
 async function main() {
   const completion = await openai.chat.completions.create({
-    messages: [{ role: "system", content: "You are a helpful assistant." }],
+    messages: [{ role: "user", content: "hello world, write me a linkedin post about hello world" }],
     model: "gpt-3.5-turbo",
+    maxtokens: 250,
+    temperature: 0.5,
   });
 
   console.log(completion.choices[0]);
