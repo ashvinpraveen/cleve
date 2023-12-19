@@ -1,3 +1,10 @@
+#stop tracking .env, yarn and node (it was previously uploaded before setting up gitignore)
+
+git rm --cached .env
+git rm --cached yarn.lock   
+git rm -r --cached /node_modules
+
+
 # #ignore files below
 
 # #ignore node modules
