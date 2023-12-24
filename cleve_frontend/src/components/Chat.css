@@ -1,0 +1,48 @@
+/* .wrapper {
+    display: grid;
+    grid-template-columns: 60px auto;
+    min-height: 60px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #1b1b1d;
+  }
+  
+  .avatar {
+    width: 20px;
+    height: 20px;
+  }
+
+
+
+/* import { css } from "@emotion/react";
+
+const chatContainerStyle = css`
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow: auto;
+`;
+
+const inputStyle = css`
+  margin-top: 10px;
+`;
+
+const userMessageStyle = css`
+  align-self: flex-end;
+  background-color: #0084ff;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+`;
+
+const aiMessageStyle = css`
+  align-self: flex-start;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+`; */ 

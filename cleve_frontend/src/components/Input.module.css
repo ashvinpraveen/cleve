@@ -1,0 +1,37 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: auto 100px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #D9E3FF;
+  }
+  
+  .text {
+    border: none;
+    outline: none;
+    background: none;
+    padding: 20px;
+    color: rgb(20, 20, 20);
+    font-size: 16px;
+  }
+  
+  .arrow {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .btn {
+    border: none;
+    border-radius: 0 10px 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4478FF;
+  }
+  
+  .btn:hover {
+    cursor: pointer;
+    background-color: #3464de;
+  }

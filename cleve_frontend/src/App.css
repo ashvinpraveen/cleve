@@ -1,5 +1,45 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: auto 200px;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.Column {
+  color: rgb(19, 19, 19);
+}
+
+.Title {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  color: black;
+  background-color: #d6e1ff;
+}
+
+.Content {
+  height: calc(100vh - 200px);
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+
+/* .App {
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
 }
 
 .App-logo {
@@ -21,7 +61,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .App-link {
@@ -35,4 +75,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

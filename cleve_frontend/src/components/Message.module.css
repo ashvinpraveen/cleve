@@ -1,0 +1,14 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 30px auto;
+    min-height: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #D6E1FF;
+  }
+  
+  .avatar {
+    width: 20px;
+    height: 20px;
+  }
