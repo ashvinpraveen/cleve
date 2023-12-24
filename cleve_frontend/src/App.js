@@ -1,24 +1,34 @@
+// Importing useState hook from React
 import { useState } from "react";
 
+// Importing components
 import Message from "./components/Message";
 import Input from "./components/Input";
 import History from "./components/History";
 import Clear from "./components/Clear";
 
+// Importing CSS file
 import "./App.css";
 
+// Defining the App component
 export default function App() {
+  // Setting up state variables using useState hook
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [history, setHistory] = useState([]);
 
+  // Function to handle form submission
   const handleSubmit = async () => {
+    // Creating a prompt object with user input
     const prompt = {
       role: "user",
       content: input,
     };
 
+    // Adding the prompt to the messages state
     setMessages([...messages, prompt]);
+
+    // Sending a POST request to OpenAI API for chat completions
 
     await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -33,7 +43,16 @@ export default function App() {
     })
       .then((data) => data.json())
       .then((data) => {
-        console.log(data);
+        const res = data.choices[0].message.content;
+        setMessages((messages) => [
+          ...messages,
+          {
+            role: "assistant",
+            content: res,
+          },
+        ]);
+        setHistory((history) => [...history, { question: input, answer: res }]);
+        setInput("");
       });
   };
 
@@ -42,15 +61,18 @@ export default function App() {
     setHistory([]);
   };
 
+  // Rendering the App component
   return (
     <div className="App">
       <div className="Column">
         <h3 className="Title">Chat Messages</h3>
         <div className="Content">
+          {/* Rendering each message */}
           {messages.map((el, i) => {
             return <Message key={i} role={el.role} content={el.content} />;
           })}
         </div>
+        {/* Rendering the input component */}
         <Input
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -60,6 +82,7 @@ export default function App() {
       <div className="Column">
         <h3 className="Title">History</h3>
         <div className="Content">
+          {/* Rendering each history item */}
           {history.map((el, i) => {
             return (
               <History
@@ -75,6 +98,7 @@ export default function App() {
             );
           })}
         </div>
+        {/* Rendering the clear button */}
         <Clear onClick={clear} />
       </div>
     </div>
@@ -124,5 +148,4 @@ export default function App() {
 // //     </div>
 // //   );
 // // }
-
 // // export default App;
